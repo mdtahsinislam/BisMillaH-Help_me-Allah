@@ -1,0 +1,64 @@
+1. How does the Node.js event loop execute asynchronous tasks without blocking the single main thread?
+বাংলা অনুবাদ:
+
+Node.js-এর Event Loop কীভাবে একটি মাত্র Main Thread ব্লক না করে Asynchronous Task গুলো সম্পন্ন করে?
+
+English Answer:
+
+The Node.js Event Loop handles asynchronous operations by delegating tasks such as file I/O, network requests, and timers to the system or thread pool. When the task is completed, the callback is placed in the event queue and executed by the Event Loop without blocking the main thread.
+
+বাংলা উত্তর:
+
+Node.js-এর Event Loop ফাইল অপারেশন, নেটওয়ার্ক রিকোয়েস্ট ও টাইমারের মতো কাজগুলোকে সিস্টেম বা Thread Pool-এর কাছে পাঠিয়ে দেয়। কাজ শেষ হলে Callback Event Queue-তে আসে এবং Event Loop সেটি Execute করে। ফলে Main Thread ব্লক হয় না।
+
+2. What is the purpose of next() in Express middleware, and what happens if it is omitted in a route handler?
+বাংলা অনুবাদ:
+
+Express Middleware-এ next() এর কাজ কী, এবং Route Handler-এ এটি ব্যবহার না করলে কী ঘটে?
+
+English Answer:
+
+next() passes control to the next middleware or route handler. If it is omitted and no response is sent, the request will hang and the client will not receive a response.
+
+বাংলা উত্তর:
+
+next() বর্তমান Middleware থেকে পরবর্তী Middleware বা Route Handler-এর কাছে Control পাঠায়। যদি next() ব্যবহার না করা হয় এবং Response পাঠানো না হয়, তাহলে Request আটকে যাবে এবং Client কোনো Response পাবে না।
+
+3. How do you create a centralized error-handling middleware in Express to safely catch both sync and async errors?
+বাংলা অনুবাদ:
+
+Express-এ Sync এবং Async উভয় ধরনের Error নিরাপদে ধরার জন্য Centralized Error-Handling Middleware কীভাবে তৈরি করা হয়?
+
+English Answer:
+
+A centralized error-handling middleware is created using four parameters: (err, req, res, next). It catches errors and returns a consistent error response. Async errors are usually passed using next(error) or wrapped in try-catch blocks.
+
+বাংলা উত্তর:
+
+Express-এ (err, req, res, next) প্যারামিটার ব্যবহার করে একটি Centralized Error Middleware তৈরি করা হয়। এটি সব Error এক জায়গায় Handle করে এবং নির্দিষ্ট Error Response পাঠায়। Async Error সাধারণত next(error) অথবা try-catch ব্যবহার করে Middleware-এ পাঠানো হয়।
+
+4. What are the main differences between SQL (PostgreSQL) and NoSQL (MongoDB) regarding schema design and scaling?
+বাংলা অনুবাদ:
+
+Schema Design এবং Scaling-এর ক্ষেত্রে SQL (PostgreSQL) ও NoSQL (MongoDB)-এর প্রধান পার্থক্য কী?
+
+English Answer:
+
+PostgreSQL uses a fixed schema with structured tables, while MongoDB uses a flexible schema with JSON-like documents. PostgreSQL mainly scales vertically, whereas MongoDB supports horizontal scaling more easily.
+
+বাংলা উত্তর:
+
+PostgreSQL-এ Fixed Schema ও Table ব্যবহার করা হয়, কিন্তু MongoDB-তে Flexible Schema ও Document ব্যবহার করা হয়। PostgreSQL সাধারণত Vertical Scaling করে, আর MongoDB সহজে Horizontal Scaling সমর্থন করে।
+
+5. What is database connection pooling in PostgreSQL, and why is it preferred over opening a new client connection for every request?
+বাংলা অনুবাদ:
+
+PostgreSQL-এ Database Connection Pooling কী এবং প্রতিটি Request-এর জন্য নতুন Connection খোলার পরিবর্তে এটি কেন বেশি ব্যবহৃত হয়?
+
+English Answer:
+
+Connection Pooling maintains a pool of reusable database connections. It improves performance, reduces connection overhead, and allows applications to handle more requests efficiently.
+
+বাংলা উত্তর:
+
+Connection Pooling হলো আগে থেকেই তৈরি করা কিছু Database Connection সংরক্ষণ করে রাখা। এতে বারবার নতুন Connection তৈরি করতে হয় না, ফলে Performance ভালো হয়, Resource কম খরচ হয় এবং বেশি Request দক্ষতার সাথে Handle করা যায়।
